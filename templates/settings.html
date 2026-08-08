@@ -1,0 +1,57 @@
+```html
+{% extends "base.html" %}
+{% block title %}{{ _('settings') }}{% endblock %}
+{% block content %}
+<h2>⚙️ {{ _('settings') }}</h2>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header"><h5>🔑 {{ _('change_password') }}</h5></div>
+            <div class="card-body">
+                <form method="POST">
+                    {{ password_form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ password_form.current_password.label(class="form-label") }}
+                        {{ password_form.current_password(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ password_form.new_password.label(class="form-label") }}
+                        {{ password_form.new_password(class="form-control") }}
+                    </div>
+                    <div class="mb-3">
+                        {{ password_form.confirm_password.label(class="form-label") }}
+                        {{ password_form.confirm_password(class="form-control") }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">{{ _('change_password') }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header"><h5>🌐 {{ _('language') }} & {{ _('theme') }}</h5></div>
+            <div class="card-body">
+                <form method="POST" class="mb-3">
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('language') }}</label>
+                        <select name="language" class="form-select" onchange="this.form.submit()">
+                            <option value="fa" {% if current_language == 'fa' %}selected{% endif %}>فارسی</option>
+                            <option value="en" {% if current_language == 'en' %}selected{% endif %}>English</option>
+                        </select>
+                    </div>
+                </form>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('theme') }}</label>
+                        <select name="theme" class="form-select" onchange="this.form.submit()">
+                            <option value="light" {% if current_theme == 'light' %}selected{% endif %}>☀️ {{ _('light') }}</option>
+                            <option value="dark" {% if current_theme == 'dark' %}selected{% endif %}>🌙 {{ _('dark') }}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+```
