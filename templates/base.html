@@ -1,0 +1,20 @@
+```html
+{% extends "base.html" %}
+{% block title %}{{ _('login') }}{% endblock %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <h2 class="text-center">🔐 {{ _('login') }}</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control", placeholder="رمز عبور را وارد کنید") }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">{{ _('login') }}</button>
+        </form>
+        <p class="text-muted text-center mt-3">فقط با رمز عبور وارد شوید</p>
+    </div>
+</div>
+{% endblock %}
+```
