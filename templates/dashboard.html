@@ -1,0 +1,59 @@
+```html
+{% extends "base.html" %}
+{% block title %}{{ _('dashboard') }}{% endblock %}
+{% block content %}
+<h2>📊 {{ _('dashboard') }}</h2>
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('total_users') }}</h5>
+                <h2>{{ total_users }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('active_users') }}</h5>
+                <h2>{{ active_users }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('expired_users') }}</h5>
+                <h2>{{ expired_users }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('total_traffic') }}</h5>
+                <h2>{{ total_traffic }} / {{ total_traffic_limit }} MB</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-md-3">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('total_requests') }}</h5>
+                <h2>{{ total_requests }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-secondary">
+            <div class="card-body">
+                <h5 class="card-title">{{ _('total_inbounds') }}</h5>
+                <h2>{{ total_inbounds }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+```
